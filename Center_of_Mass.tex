@@ -1,0 +1,102 @@
+
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.65in]{geometry}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\setlength{\parindent}{0cm}
+\pagenumbering{arabic}
+
+\title{Advanced Raster GIS: Homework 4}
+\author{by: Kelly Janus}
+\date{\today}
+
+
+\begin{document}
+
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+DN stands for digital number.  For this sake it will be a number between  to 256 to represent the grayscale color of each pixel in a raster. "i" represents the number of rows and "j" represents the number of columns.  We first iterte through the rows to find the "center of mass" for the rows, then we iterate through the columns to find the "center of mass" of the columns.  \\
+
+We are trying to find a better way to express allocation and quantity disribution between rasters and learn how to come up with a more sophisticated method to compare them. \\
+
+First, we do the following three calculations for the Masterpiece, then we do the following three calculations for the Fake \\
+
+\begin{center}
+
+Masterpiece Raster
+
+\end{center}
+
+$$
+CM_i = \frac{\sum_{i = 1}^{i}{(DN)_i(i)}}{\sum{(DN)_i}}
+$$
+
+$$
+CM_j = \frac{\sum_{j = 1}^{j}{(DN)_j(j)}}{\sum{(DN)_j}}
+$$
+
+$$
+CM_{total_masterpiece} = \sqrt{CM_i^2 + CM_j^2}
+$$
+
+\vspace{10mm}
+
+\begin{center}
+
+Fake Raster
+
+\end{center}
+
+$$
+CM_i = \frac{\sum_{i = 1}^{i}{(DN)_i(i)}}{\sum{(DN)_i}}
+$$
+
+$$
+CM_j = \frac{\sum_{j = 1}^{j}{(DN)_j(j)}}{\sum{(DN)_j}}
+$$
+
+$$
+CM_{total_fake} = \sqrt{CM_i^2 + CM_j^2}
+$$
+
+\vspace{10mm}
+
+$$
+\Delta CM = \mid CM_{total_masterpiece} - CM_{total_fake} \mid
+$$
+
+\vspace{10mm}
+
+
+Next we calculate the total quantity (or DN) for each raster... \\
+
+$$
+DN_{masterpiece} = \sum(DN)_{masterpiece} 
+$$
+
+$$
+DN_{fake} = \sum(DN) 
+$$
+
+$$
+\Delta DN = \mid DN_{masterpiece} - DN_{fake} \mid
+$$
+
+
+
+
+\vspace{10mm}
+
+Finally we plot $\Delta$ DN on our x axis and $\Delta$ CM on our y axis 
+
+
+
+
+
+
+
+\end{document}
